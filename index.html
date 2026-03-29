@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HuntMaryland — Maryland Hunting Lands, Regulations & Maps</title>
+<meta name="description" content="Free iOS app for Maryland hunters. 192 public lands mapped, current regulations, AI assistant, and community scouting.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0D1A0D;
+    color: #e8e4d8;
+    min-height: 100vh;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(180deg, #0D1A0D 0%, #1a2e1a 50%, #0D1A0D 100%);
+  }
+
+  .logo-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    color: #F0C040;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: #8B7355;
+    margin-bottom: 32px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #D4A840;
+    color: #0D1A0D;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+  }
+  .badge:hover { background: #F0C040; }
+
+  .badge-sub {
+    display: block;
+    font-size: 13px;
+    color: #6B8E60;
+    margin-top: 8px;
+  }
+
+  .features {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .features h2 {
+    font-family: Georgia, serif;
+    color: #D4A840;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .feature {
+    background: rgba(26,46,26,0.6);
+    border: 1px solid rgba(107,142,96,0.2);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .feature h3 {
+    color: #F0C040;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .feature p {
+    color: #a0a090;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .stats {
+    text-align: center;
+    padding: 32px 20px;
+    border-top: 1px solid rgba(107,142,96,0.15);
+    border-bottom: 1px solid rgba(107,142,96,0.15);
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-num { font-size: 36px; font-weight: 700; color: #D4A840; font-family: Georgia, serif; }
+  .stat-label { font-size: 13px; color: #6B8E60; margin-top: 4px; }
+
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #555;
+    font-size: 13px;
+  }
+
+  .footer a { color: #8B7355; text-decoration: none; }
+  .footer a:hover { color: #D4A840; }
+
+  .md-accent {
+    width: 80px;
+    height: 3px;
+    margin: 0 auto 20px;
+    background: linear-gradient(90deg, #C41E3A 0%, #C41E3A 33%, #F0C040 33%, #F0C040 66%, #000 66%, #000 100%);
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <!-- Replace src with actual hosted icon URL if desired -->
+  <div style="width:160px;height:160px;margin:0 auto 24px;border-radius:32px;background:linear-gradient(135deg,#1a3a1a,#0D1A0D);border:2px solid #D4A840;display:flex;align-items:center;justify-content:center;">
+    <span style="font-size:64px;">🦌</span>
+  </div>
+  <h1>HuntMaryland</h1>
+  <p class="subtitle">Maryland Hunting Lands, Regulations & Maps</p>
+  <div class="md-accent"></div>
+  <a class="badge" href="https://apps.apple.com/app/huntmaryland/id000000000">
+    Download on the App Store
+  </a>
+  <span class="badge-sub">Free for iOS &bull; No account required</span>
+</div>
+
+<div class="stats">
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-num">192</div>
+      <div class="stat-label">Public Hunting Lands</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">14</div>
+      <div class="stat-label">Shooting Ranges</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">124</div>
+      <div class="stat-label">GIS Boundaries</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Free</div>
+      <div class="stat-label">No Ads, No Account</div>
+    </div>
+  </div>
+</div>
+
+<div class="features">
+  <h2>Everything Maryland Hunters Need</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Interactive Map</h3>
+      <p>Browse all 192 MD public hunting lands with real property boundaries. Filter by land type, species, weapon, and access features.</p>
+    </div>
+    <div class="feature">
+      <h3>Regulations</h3>
+      <p>Current Maryland hunting seasons, bag limits, and legal methods. Use "Can I Hunt?" to check what's open on any date.</p>
+    </div>
+    <div class="feature">
+      <h3>AI Assistant</h3>
+      <p>Ask questions about Maryland hunting regulations, public lands, and seasons. Get instant answers with official DNR citations.</p>
+    </div>
+    <div class="feature">
+      <h3>Community Scouting</h3>
+      <p>See what other Maryland hunters are reporting. Share scouting reports, trail conditions, and wildlife activity.</p>
+    </div>
+    <div class="feature">
+      <h3>Land Details</h3>
+      <p>Tap any land for directions, parking info, contact numbers, access notes, and links to official DNR pages and PDF maps.</p>
+    </div>
+    <div class="feature">
+      <h3>Coming Soon</h3>
+      <p>FishMaryland, CrabMaryland, HikeMaryland, and BoatMaryland — all of Maryland's outdoors in one app.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Built by a solo developer for Maryland's outdoor community.</p>
+  <p style="margin-top: 12px;">
+    <a href="privacy.html">Privacy Policy</a> &bull;
+    <a href="mailto:dstonko1@gmail.com">Contact</a> &bull;
+    <a href="https://venmo.com/u/David-Stonko">Support Us</a>
+  </p>
+  <p style="margin-top: 16px; color: #444;">
+    Always verify current regulations with the Maryland DNR before hunting.<br>
+    &copy; 2026 David Stonko. All rights reserved.
+  </p>
+</div>
+
+</body>
+</html>
