@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6761347484, app-argument=https://davidstonko.github.io/huntmaryland-site/docs/join/">
+
+  <!-- Open Graph / iMessage Preview -->
+  <meta property="og:title" content="Join my Deer Camp on MDHuntFishOutdoors">
+  <meta property="og:description" content="Collaborative hunting maps for Maryland with friends and hunting groups.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davidstonko.github.io/huntmaryland-site/docs/join/">
+  <meta property="og:image" content="https://davidstonko.github.io/huntmaryland-site/assets/og-camp-invite.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Join my Deer Camp on MDHuntFishOutdoors">
+  <meta name="twitter:description" content="Collaborative hunting maps for Maryland">
+  <meta name="twitter:image" content="https://davidstonko.github.io/huntmaryland-site/assets/og-camp-invite.png">
+
+  <title>Deer Camp Invite — MDHuntFishOutdoors</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0D1A0D;
+      color: #e8e4d8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .icon-large {
+      font-size: 80px;
+      margin-bottom: 24px;
+      display: block;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #F0C040;
+      margin-bottom: 12px;
+      font-family: Georgia, serif;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #a0a090;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .invite-code {
+      background: rgba(26, 46, 26, 0.6);
+      border: 2px solid #D4A840;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 32px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      color: #F0C040;
+      word-break: break-all;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .code-label {
+      font-size: 12px;
+      color: #6B8E60;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(180deg, #D4A840 0%, #C4952A 100%);
+      color: #0D1A0D;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(212, 168, 64, 0.25);
+      margin-bottom: 16px;
+      width: 100%;
+    }
+
+    .cta-button:hover {
+      background: linear-gradient(180deg, #F0C040 0%, #D4A840 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(212, 168, 64, 0.35);
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(212, 168, 64, 0.2);
+    }
+
+    .secondary-link {
+      display: block;
+      color: #8B7355;
+      text-decoration: none;
+      font-size: 14px;
+      margin-top: 16px;
+      transition: color 0.2s;
+    }
+
+    .secondary-link:hover {
+      color: #D4A840;
+    }
+
+    .md-accent {
+      width: 100%;
+      height: 3px;
+      margin: 24px auto;
+      background: linear-gradient(90deg, #C41E3A 0%, #C41E3A 33%, #F0C040 33%, #F0C040 66%, #000 66%, #000 100%);
+      border-radius: 2px;
+    }
+
+    .features-text {
+      font-size: 13px;
+      color: #6B8E60;
+      margin-top: 24px;
+      line-height: 1.6;
+    }
+
+    .features-text strong {
+      color: #D4A840;
+    }
+
+    .deer-icon {
+      margin-right: 8px;
+    }
+
+    /* Mobile-first responsive adjustments */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .icon-large {
+        font-size: 64px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .cta-button {
+        font-size: 15px;
+        padding: 14px 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="icon-large">⛺🦌</span>
+
+    <h1>Deer Camp Invite</h1>
+
+    <div class="md-accent"></div>
+
+    <p class="subtitle">
+      You've been invited to join a collaborative hunting camp on <strong>MDHuntFishOutdoors</strong>!
+    </p>
+
+    <div class="code-label">Invite Code</div>
+    <div class="invite-code" id="inviteCode">Loading...</div>
+
+    <a class="cta-button" href="https://apps.apple.com/app/id6761347484" id="downloadButton">
+      Get MDHuntFishOutdoors
+    </a>
+
+    <a class="secondary-link" href="https://davidstonko.github.io/huntmaryland-site/">
+      ← Back to MDHuntFishOutdoors
+    </a>
+
+    <div class="features-text">
+      <p>
+        <strong>Hunt with your crew.</strong> Mark waypoints, share scouting reports,
+        and collaborate on maps with friends and hunting groups — all offline.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Extract invite code from URL query parameter
+    function getInviteCode() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code');
+      return code && code.trim() ? code : 'No invite code provided';
+    }
+
+    // Display the invite code
+    const codeElement = document.getElementById('inviteCode');
+    const inviteCode = getInviteCode();
+    codeElement.textContent = inviteCode;
+
+    // If there's a code, update the download link to pass it through
+    if (inviteCode !== 'No invite code provided') {
+      const downloadButton = document.getElementById('downloadButton');
+      // Construct deep link with invite code
+      downloadButton.href = `https://apps.apple.com/app/id6761347484?invite=${encodeURIComponent(inviteCode)}`;
+
+      // Also set up the Smart App Banner with deep link
+      const smartBanner = document.querySelector('meta[name="apple-itunes-app"]');
+      if (smartBanner) {
+        const currentContent = smartBanner.getAttribute('content');
+        smartBanner.setAttribute(
+          'content',
+          `${currentContent}, app-argument=https://davidstonko.github.io/huntmaryland-site/docs/join/?code=${encodeURIComponent(inviteCode)}`
+        );
+      }
+    }
+  </script>
+</body>
+</html>

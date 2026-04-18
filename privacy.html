@@ -3,60 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HuntMaryland — Privacy Policy</title>
+<title>MDHuntFishOutdoors — Privacy Policy</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.6; }
-  h1 { color: #1a3a1a; border-bottom: 2px solid #D4A840; padding-bottom: 10px; }
-  h2 { color: #2a4a2a; margin-top: 30px; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 740px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #333;
+    line-height: 1.65;
+  }
+  h1 {
+    color: #1a3a1a;
+    border-bottom: 2px solid #D4A840;
+    padding-bottom: 10px;
+  }
+  h2 {
+    color: #2a4a2a;
+    margin-top: 32px;
+    font-size: 20px;
+  }
+  h3 {
+    color: #2a4a2a;
+    margin-top: 20px;
+    font-size: 16px;
+  }
   .date { color: #888; font-size: 14px; }
-  .contact { background: #f5f5f0; padding: 16px; border-radius: 8px; margin-top: 20px; }
+  .contact {
+    background: #f5f5f0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-top: 24px;
+    border-left: 4px solid #D4A840;
+  }
+  ul { margin: 8px 0 12px 20px; }
+  li { margin-bottom: 6px; }
+  code {
+    background: #f0ede5;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 90%;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #8B7355;
+    text-decoration: none;
+  }
+  .back-link:hover { color: #D4A840; }
 </style>
 </head>
 <body>
 
-<h1>HuntMaryland Privacy Policy</h1>
-<p class="date">Effective Date: March 29, 2026</p>
+<a class="back-link" href="index.html">← Back to MDHuntFishOutdoors</a>
 
-<p>HuntMaryland ("the App") is a free informational app built for Maryland's outdoor community. Your privacy matters to us. This policy explains what data the App collects, how it's used, and your rights.</p>
+<h1>MDHuntFishOutdoors Privacy Policy</h1>
+<p class="date">Effective Date: April 18, 2026 &bull; App Version 2.2.0</p>
 
-<h2>Information We Collect</h2>
+<p>MDHuntFishOutdoors ("the App") is a free iOS app built for Maryland's hunting, fishing, camping, and hiking community. This policy describes what data the App collects, how it is used, where it goes, and your rights.</p>
 
-<p><strong>Location Data:</strong> The App requests access to your device's location to center the map on your position and show nearby public hunting lands. Location data is processed entirely on your device and is not transmitted to any server or third party. You can deny location access and still use all features of the App.</p>
+<p>We take privacy seriously. The App is designed to work offline for most features, uses no third-party advertising networks, and never sells your data.</p>
 
-<p><strong>Locally Stored Preferences:</strong> The App stores your settings (such as disclaimer acceptance and filter preferences) on your device using AsyncStorage. This data never leaves your device.</p>
+<h2>1. Information You Can Use the App Without Providing</h2>
 
-<p><strong>No Account Required:</strong> The App does not require you to create an account, sign in, or provide any personal information to use its features.</p>
+<p>You can browse every map, all public lands, every campground, every fishing access site, every Appalachian Trail mile, and the full regulations library <strong>without creating an account</strong>. No email, no password, no sign-in is required for read-only use.</p>
 
-<h2>Information We Do Not Collect</h2>
+<h2>2. Information the App Collects</h2>
 
-<p>The App does not collect, store, or transmit any of the following: your name, email address, phone number, IP address, device identifiers, browsing history, usage analytics, or any other personally identifiable information.</p>
+<h3>Location Data</h3>
+<p>The App requests location permission to center maps on your position and to enable trip tracking. Location data is processed on your device and is not transmitted to our servers. You may deny location access and continue to use the App with manual map panning.</p>
 
-<h2>Third-Party Services</h2>
+<h3>Account Data (Optional)</h3>
+<p>If you choose to save favorites, create trip plans, post scouting reports, or join a shared Deer Camp, you will create a free username-based account. We collect:</p>
+<ul>
+  <li>A username you choose (no email or phone number required)</li>
+  <li>A password hash (we never see your plaintext password)</li>
+</ul>
+<p>No real name, email address, phone number, or government ID is ever required or requested.</p>
 
-<p><strong>Mapbox:</strong> The App uses Mapbox to display maps. Mapbox may collect anonymized usage data in accordance with their own privacy policy (mapbox.com/legal/privacy). No personally identifiable information is shared with Mapbox through the App.</p>
+<h3>User-Generated Content</h3>
+<p>When you use account-gated features, the App transmits content you create to our backend servers:</p>
+<ul>
+  <li>Favorites (hunting lands, fishing spots, campgrounds, blinds, trails)</li>
+  <li>Trip plans and gear lists you save</li>
+  <li>Deer Camp journal entries, waypoints, and member lists</li>
+  <li>Group Camp messages and shared sessions</li>
+  <li>Scouting reports and forum posts</li>
+  <li>Photos you upload (hunt, fish, camp, hike — EXIF location metadata is stripped before upload)</li>
+</ul>
 
-<p><strong>No Advertising:</strong> The App does not display advertisements and does not share data with advertising networks.</p>
+<h3>Crash Reports and Analytics (Opt-In)</h3>
+<p>The App includes first-party analytics and crash reporting infrastructure. Analytics is <strong>opt-in and disabled by default</strong> — you must explicitly enable it in Settings. When enabled, we may collect anonymized usage events (screen views, feature interactions) to improve the App. No personally identifiable information is ever sent. Events are queued locally and transmitted in batches; if you are offline, nothing is sent until you reconnect.</p>
+<p>Sentry crash reporting is wired for future activation and is currently inactive in V2.2.0.</p>
 
-<p><strong>No Analytics:</strong> The App does not use analytics services such as Google Analytics, Firebase, or similar tracking tools.</p>
+<h2>3. Information the App Does Not Collect</h2>
 
-<h2>Data Sources</h2>
+<p>The App does not collect, store, transmit, or sell any of the following:</p>
+<ul>
+  <li>Your real name, email address, phone number, or physical mailing address</li>
+  <li>Your contacts, calendar, or messages</li>
+  <li>Your browsing history outside the App</li>
+  <li>Advertising identifiers (IDFA) — no IDFA is read or shared</li>
+  <li>Precise location when trip tracking is not active</li>
+</ul>
 
-<p>The hunting land data, regulations, and other information displayed in the App is sourced from publicly available Maryland Department of Natural Resources (DNR) resources, Maryland iMap GIS data, and eRegulations.com. This data is bundled with the App and does not require an internet connection to access.</p>
+<h2>4. Where Your Data Goes</h2>
 
-<h2>Children's Privacy</h2>
+<h3>Our Backend (Render)</h3>
+<p>Account data and user-generated content is transmitted over HTTPS to our API hosted at <code>huntplan-api.onrender.com</code> (Render Inc.). The backend stores data necessary to deliver the features you use and does not share it with third parties except as required to operate the service (e.g., database hosting).</p>
 
-<p>The App does not knowingly collect any information from children under 13. The App is an informational tool suitable for all ages.</p>
+<h3>Mapbox</h3>
+<p>The App uses Mapbox for map rendering. Mapbox may receive anonymized usage data (tile requests, session counts) per their own <a href="https://www.mapbox.com/legal/privacy">privacy policy</a>. No account data or personally identifiable information is shared with Mapbox through the App.</p>
 
-<h2>Changes to This Policy</h2>
+<h3>Anthropic (AI Planner)</h3>
+<p>The AI Planner feature (optional, in Hunt and Fish modes) sends your question text to Anthropic's Claude API via our backend. Your question is not tied to your account and is not stored for training. If you do not use the AI Planner, no data is sent to Anthropic.</p>
 
-<p>We may update this Privacy Policy from time to time. Any changes will be reflected in the "Effective Date" above and in an updated version of this page.</p>
+<h3>NOAA Tides</h3>
+<p>Fish mode fetches live tide data from NOAA's public Tides and Currents API. Requests are anonymous and contain no user information.</p>
 
-<h2>Contact</h2>
+<h3>Maryland DNR</h3>
+<p>Hunting land, fishing access site, landowner blind, and tidal boundary data is sourced from public Maryland Department of Natural Resources ArcGIS FeatureServers and is bundled with the App at release. DNR does not receive any information about your usage.</p>
+
+<h3>No Advertising Networks</h3>
+<p>The App displays no advertisements and transmits no data to ad networks, attribution SDKs, or analytics SDKs such as Google Analytics, Firebase Analytics, Facebook SDK, or similar.</p>
+
+<h2>5. Photo Uploads and EXIF Stripping</h2>
+
+<p>When you upload a photo (catch photo, gear photo, or scouting photo), the App removes EXIF metadata — including GPS coordinates, camera serial numbers, and timestamps — before the photo is transmitted. This prevents inadvertent disclosure of your exact location or device.</p>
+
+<h2>6. Children's Privacy</h2>
+
+<p>The App is rated for general audiences. It does not knowingly collect personal information from children under 13. If you believe a child has created an account, please contact us and we will remove it promptly.</p>
+
+<h2>7. Your Rights and Controls</h2>
+
+<p>You can:</p>
+<ul>
+  <li>Use the App without any account</li>
+  <li>Deny location permission at any time via iOS Settings</li>
+  <li>Disable or never enable analytics</li>
+  <li>Delete your account and all associated data — contact us at the email below; requests are processed within 30 days</li>
+  <li>Request a copy of data we hold about you</li>
+</ul>
+
+<h2>8. Data Retention</h2>
+
+<p>Account data is retained while your account is active. Deleted accounts and their content are permanently removed from production databases within 30 days. Analytics events, if you opted in, are retained for 90 days then aggregated and deleted.</p>
+
+<h2>9. Security</h2>
+
+<p>Data is transmitted between the App and our backend over HTTPS with TLS 1.2 or higher. Passwords are hashed before storage. No security measure is perfect, but we follow industry-standard practices for a solo-developer project.</p>
+
+<h2>10. Changes to This Policy</h2>
+
+<p>We may update this policy. Material changes will be reflected in the Effective Date above and announced on the App's release notes. Continued use of the App after a change constitutes acceptance of the updated policy.</p>
+
+<h2>11. Contact</h2>
 
 <div class="contact">
-  <p>If you have questions about this Privacy Policy, contact us at:</p>
+  <p>Questions about this policy, data requests, or account deletion:</p>
   <p><strong>Email:</strong> dstonko1@gmail.com</p>
   <p><strong>Developer:</strong> David Stonko</p>
+  <p><strong>App Store:</strong> MDHuntFishOutdoors (Apple ID 6761347484)</p>
 </div>
 
 </body>

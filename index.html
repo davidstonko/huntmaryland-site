@@ -3,8 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HuntMaryland — Maryland Hunting Lands, Regulations & Maps</title>
-<meta name="description" content="Free iOS app for Maryland hunters. 192 public lands mapped, current regulations, AI assistant, and community scouting.">
+<title>MDHuntFishOutdoors — Maryland's Hunt, Fish, Camp & Hike App</title>
+<meta name="description" content="Free iOS app for Maryland's outdoor community. 192 public hunting lands, 579 DNR fishing access sites, 2,000 landowner blinds, 25 verified campgrounds, and the full Maryland Appalachian Trail — all offline.">
+<meta name="apple-itunes-app" content="app-id=6761347484">
+
+<!-- Open Graph -->
+<meta property="og:title" content="MDHuntFishOutdoors — Maryland's Outdoor App">
+<meta property="og:description" content="Hunt. Fish. Camp. Hike. All of Maryland's public lands in one free iOS app.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://davidstonko.github.io/huntmaryland-site/">
+
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -20,12 +28,22 @@
     background: linear-gradient(180deg, #0D1A0D 0%, #1a2e1a 50%, #0D1A0D 100%);
   }
 
-  .logo-img {
+  .app-icon {
     width: 160px;
     height: 160px;
+    margin: 0 auto 24px;
     border-radius: 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    background: linear-gradient(135deg, #1a3a1a, #0D1A0D);
+    border: 2px solid #D4A840;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  .app-icon-emoji {
+    font-size: 60px;
+    letter-spacing: 2px;
   }
 
   h1 {
@@ -33,6 +51,7 @@
     font-size: 42px;
     color: #F0C040;
     margin-bottom: 8px;
+    letter-spacing: -0.5px;
   }
 
   .subtitle {
@@ -51,9 +70,9 @@
     border-radius: 12px;
     text-decoration: none;
     margin-bottom: 12px;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
   }
-  .badge:hover { background: #F0C040; }
+  .badge:hover { background: #F0C040; transform: translateY(-1px); }
 
   .badge-sub {
     display: block;
@@ -62,73 +81,6 @@
     margin-top: 8px;
   }
 
-  .features {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-
-  .features h2 {
-    font-family: Georgia, serif;
-    color: #D4A840;
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 32px;
-  }
-
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-  }
-
-  .feature {
-    background: rgba(26,46,26,0.6);
-    border: 1px solid rgba(107,142,96,0.2);
-    border-radius: 12px;
-    padding: 24px;
-  }
-
-  .feature h3 {
-    color: #F0C040;
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-
-  .feature p {
-    color: #a0a090;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .stats {
-    text-align: center;
-    padding: 32px 20px;
-    border-top: 1px solid rgba(107,142,96,0.15);
-    border-bottom: 1px solid rgba(107,142,96,0.15);
-  }
-
-  .stats-row {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    flex-wrap: wrap;
-  }
-
-  .stat { text-align: center; }
-  .stat-num { font-size: 36px; font-weight: 700; color: #D4A840; font-family: Georgia, serif; }
-  .stat-label { font-size: 13px; color: #6B8E60; margin-top: 4px; }
-
-  .footer {
-    text-align: center;
-    padding: 40px 20px;
-    color: #555;
-    font-size: 13px;
-  }
-
-  .footer a { color: #8B7355; text-decoration: none; }
-  .footer a:hover { color: #D4A840; }
-
   .md-accent {
     width: 80px;
     height: 3px;
@@ -136,22 +88,170 @@
     background: linear-gradient(90deg, #C41E3A 0%, #C41E3A 33%, #F0C040 33%, #F0C040 66%, #000 66%, #000 100%);
     border-radius: 2px;
   }
+
+  .stats {
+    text-align: center;
+    padding: 32px 20px;
+    border-top: 1px solid rgba(107, 142, 96, 0.15);
+    border-bottom: 1px solid rgba(107, 142, 96, 0.15);
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .stat { text-align: center; }
+  .stat-num { font-size: 34px; font-weight: 700; color: #D4A840; font-family: Georgia, serif; }
+  .stat-label { font-size: 12px; color: #6B8E60; margin-top: 4px; line-height: 1.3; }
+
+  .modes {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 20px;
+  }
+
+  .modes h2 {
+    font-family: Georgia, serif;
+    color: #D4A840;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .modes-intro {
+    text-align: center;
+    color: #8B7355;
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .mode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .mode {
+    background: rgba(26, 46, 26, 0.6);
+    border: 1px solid rgba(107, 142, 96, 0.25);
+    border-radius: 14px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+
+  .mode:hover { border-color: rgba(212, 168, 64, 0.5); }
+
+  .mode-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .mode-emoji {
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .mode-title {
+    color: #F0C040;
+    font-size: 20px;
+    font-family: Georgia, serif;
+  }
+
+  .mode-desc {
+    color: #c8c4b8;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .mode-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mode-list li {
+    color: #8fa085;
+    font-size: 13px;
+    padding: 3px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .mode-list li::before {
+    content: '▸';
+    color: #D4A840;
+    position: absolute;
+    left: 0;
+  }
+
+  .infrastructure {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+    text-align: center;
+  }
+
+  .infrastructure h2 {
+    font-family: Georgia, serif;
+    color: #D4A840;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .infra-list {
+    color: #a0a090;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .infra-list strong { color: #D4A840; }
+
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #555;
+    font-size: 13px;
+    border-top: 1px solid rgba(107, 142, 96, 0.15);
+  }
+
+  .footer a { color: #8B7355; text-decoration: none; }
+  .footer a:hover { color: #D4A840; }
+
+  .footer-disclaimer {
+    margin-top: 16px;
+    color: #444;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 32px; }
+    .subtitle { font-size: 16px; }
+    .stat-num { font-size: 28px; }
+    .modes h2 { font-size: 22px; }
+    .mode { padding: 20px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <!-- Replace src with actual hosted icon URL if desired -->
-  <div style="width:160px;height:160px;margin:0 auto 24px;border-radius:32px;background:linear-gradient(135deg,#1a3a1a,#0D1A0D);border:2px solid #D4A840;display:flex;align-items:center;justify-content:center;">
-    <span style="font-size:64px;">🦌</span>
+  <div class="app-icon">
+    <span class="app-icon-emoji">🦌🎣</span>
   </div>
-  <h1>HuntMaryland</h1>
-  <p class="subtitle">Maryland Hunting Lands, Regulations & Maps</p>
+  <h1>MDHuntFishOutdoors</h1>
+  <p class="subtitle">Hunt. Fish. Camp. Hike. All of Maryland, offline.</p>
   <div class="md-accent"></div>
-  <a class="badge" href="https://apps.apple.com/app/huntmaryland/id000000000">
+  <a class="badge" href="https://apps.apple.com/app/id6761347484">
     Download on the App Store
   </a>
-  <span class="badge-sub">Free for iOS &bull; No account required</span>
+  <span class="badge-sub">Free for iOS &bull; iPhone 12 or newer</span>
 </div>
 
 <div class="stats">
@@ -161,48 +261,107 @@
       <div class="stat-label">Public Hunting Lands</div>
     </div>
     <div class="stat">
+      <div class="stat-num">2,000</div>
+      <div class="stat-label">Landowner Blind Sites</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">579</div>
+      <div class="stat-label">DNR Fishing Access Sites</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">25</div>
+      <div class="stat-label">Verified Campgrounds</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">40.9</div>
+      <div class="stat-label">Miles of AT in MD</div>
+    </div>
+    <div class="stat">
       <div class="stat-num">14</div>
       <div class="stat-label">Shooting Ranges</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">124</div>
-      <div class="stat-label">GIS Boundaries</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Free</div>
-      <div class="stat-label">No Ads, No Account</div>
     </div>
   </div>
 </div>
 
-<div class="features">
-  <h2>Everything Maryland Hunters Need</h2>
-  <div class="feature-grid">
-    <div class="feature">
-      <h3>Interactive Map</h3>
-      <p>Browse all 192 MD public hunting lands with real property boundaries. Filter by land type, species, weapon, and access features.</p>
+<div class="modes">
+  <h2>Four Modes. One App.</h2>
+  <p class="modes-intro">Every mode ships with real data. No placeholders, no paywalls.</p>
+
+  <div class="mode-grid">
+    <div class="mode">
+      <div class="mode-header">
+        <span class="mode-emoji">🦌</span>
+        <span class="mode-title">Hunt</span>
+      </div>
+      <p class="mode-desc">
+        Every public hunting land in Maryland, with boundaries, species, legal weapons, and 2,000 registered landowner blinds.
+      </p>
+      <ul class="mode-list">
+        <li>Map + Scout + AI planner + Deer Camp</li>
+        <li>124 GIS property polygons, 9 land-type filters</li>
+        <li>Regulation chunks linked to each property</li>
+        <li>Shared deer camp journal for your crew</li>
+      </ul>
     </div>
-    <div class="feature">
-      <h3>Regulations</h3>
-      <p>Current Maryland hunting seasons, bag limits, and legal methods. Use "Can I Hunt?" to check what's open on any date.</p>
+
+    <div class="mode">
+      <div class="mode-header">
+        <span class="mode-emoji">🎣</span>
+        <span class="mode-title">Fish</span>
+      </div>
+      <p class="mode-desc">
+        579 DNR angler access sites, 100-segment Tidal/Non-Tidal boundary overlay, and NOAA tide integration.
+      </p>
+      <ul class="mode-list">
+        <li>446 access sites + 133 stocking locations</li>
+        <li>236 sites with boat ramps, all 25 counties</li>
+        <li>Tidal boundary so you know which rules apply</li>
+        <li>Catch photo uploads with EXIF stripped</li>
+      </ul>
     </div>
-    <div class="feature">
-      <h3>AI Assistant</h3>
-      <p>Ask questions about Maryland hunting regulations, public lands, and seasons. Get instant answers with official DNR citations.</p>
+
+    <div class="mode">
+      <div class="mode-header">
+        <span class="mode-emoji">⛺</span>
+        <span class="mode-title">Camp</span>
+      </div>
+      <p class="mode-desc">
+        25 verified Maryland campgrounds — state parks, state forests, and AT backpacker shelters — with trip planning and group invites.
+      </p>
+      <ul class="mode-list">
+        <li>Trip planner with gear recommender</li>
+        <li>Group Camp shared sessions via invite link</li>
+        <li>Leave No Trace, bear safety, tick prevention</li>
+        <li>Fire policy by property</li>
+      </ul>
     </div>
-    <div class="feature">
-      <h3>Community Scouting</h3>
-      <p>See what other Maryland hunters are reporting. Share scouting reports, trail conditions, and wildlife activity.</p>
-    </div>
-    <div class="feature">
-      <h3>Land Details</h3>
-      <p>Tap any land for directions, parking info, contact numbers, access notes, and links to official DNR pages and PDF maps.</p>
-    </div>
-    <div class="feature">
-      <h3>Coming Soon</h3>
-      <p>FishMaryland, CrabMaryland, HikeMaryland, and BoatMaryland — all of Maryland's outdoors in one app.</p>
+
+    <div class="mode">
+      <div class="mode-header">
+        <span class="mode-emoji">🥾</span>
+        <span class="mode-title">Hike</span>
+      </div>
+      <p class="mode-desc">
+        The Maryland Appalachian Trail in full detail, plus 19 state-park trails with verified distances and a 3-tier gear system.
+      </p>
+      <ul class="mode-list">
+        <li>40.9 AT miles, 9 shelters, 10 trailheads</li>
+        <li>12 landmarks, 10 water sources</li>
+        <li>Day / Overnight / Multi-day gear tiers</li>
+        <li>AT permits, etiquette, safety resources</li>
+      </ul>
     </div>
   </div>
+</div>
+
+<div class="infrastructure">
+  <h2>Built for the Field</h2>
+  <p class="infra-list">
+    <strong>Offline-first.</strong> Every map tile, regulation, and campground detail ships with the app.<br>
+    <strong>No tracking.</strong> Analytics is opt-in and first-party. No ad networks, no third-party SDKs.<br>
+    <strong>No account required</strong> to browse — create a free username only if you want favorites, trip plans, or deer camp.<br>
+    <strong>Maryland DNR data</strong> sourced directly from public ArcGIS FeatureServers. Verified, not scraped.
+  </p>
 </div>
 
 <div class="footer">
@@ -212,8 +371,8 @@
     <a href="mailto:dstonko1@gmail.com">Contact</a> &bull;
     <a href="https://venmo.com/u/David-Stonko">Support Us</a>
   </p>
-  <p style="margin-top: 16px; color: #444;">
-    Always verify current regulations with the Maryland DNR before hunting.<br>
+  <p class="footer-disclaimer">
+    Always verify current regulations with the Maryland Department of Natural Resources before hunting, fishing, or accessing any property.<br>
     &copy; 2026 David Stonko. All rights reserved.
   </p>
 </div>
