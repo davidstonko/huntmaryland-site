@@ -31,10 +31,10 @@ V2.2.0 DEPLOY — WHAT'S NEW (2026-04-18)
   4. App Store link now points to real Apple ID 6761347484
 
 ================================================================================
-ACTION REQUIRED BEFORE V2.2.0 SUBMIT — FILL IN TEAM ID
+TEAM ID — FILLED IN 2026-04-18 (BAFL96ZCUU)
 ================================================================================
 
-.well-known/apple-app-site-association still has the placeholder TEAM_ID_HERE.
+.well-known/apple-app-site-association still has the placeholder BAFL96ZCUU.
 You MUST replace it with your Apple Developer Team ID before Universal Links
 will work.
 
@@ -43,7 +43,7 @@ will work.
      (10-character alphanumeric, e.g., A1B2C3D4E5)
 
   2. Edit .well-known/apple-app-site-association and replace:
-        "appID": "TEAM_ID_HERE.com.davidstonko.huntmaryland"
+        "appID": "BAFL96ZCUU.com.davidstonko.huntmaryland"
      with:
         "appID": "YOURTEAMID.com.davidstonko.huntmaryland"
 
@@ -77,7 +77,7 @@ VERIFICATION CHECKLIST (POST-DEPLOY)
       -> Matches what you declared in App Store Connect privacy questionnaire
 
   [ ] curl https://davidstonko.github.io/huntmaryland-site/.well-known/apple-app-site-association
-      -> Returns JSON with your real Team ID (not TEAM_ID_HERE)
+      -> Returns JSON with your real Team ID (not BAFL96ZCUU)
 
   [ ] Open https://davidstonko.github.io/huntmaryland-site/docs/join/?code=TESTCODE on iPhone
       -> Shows invite card with "TESTCODE" and working App Store button
