@@ -58,7 +58,7 @@
 <a class="back-link" href="index.html">← Back to MDHuntFishOutdoors</a>
 
 <h1>MDHuntFishOutdoors Privacy Policy</h1>
-<p class="date">Effective Date: April 18, 2026 &bull; App Version 2.2.0</p>
+<p class="date">Effective Date: June 10, 2026 &bull; App Version 2.4.0</p>
 
 <p>MDHuntFishOutdoors ("the App") is a free iOS app built for Maryland's hunting, fishing, camping, and hiking community. This policy describes what data the App collects, how it is used, where it goes, and your rights.</p>
 
@@ -92,9 +92,11 @@
   <li>Photos you upload (hunt, fish, camp, hike — EXIF location metadata is stripped before upload)</li>
 </ul>
 
-<h3>Crash Reports and Analytics (Opt-In)</h3>
-<p>The App includes first-party analytics and crash reporting infrastructure. Analytics is <strong>opt-in and disabled by default</strong> — you must explicitly enable it in Settings. When enabled, we may collect anonymized usage events (screen views, feature interactions) to improve the App. No personally identifiable information is ever sent. Events are queued locally and transmitted in batches; if you are offline, nothing is sent until you reconnect.</p>
-<p>Sentry crash reporting is wired for future activation and is currently inactive in V2.2.0.</p>
+<h3>Crash Reports (Sentry)</h3>
+<p>The App uses Sentry for crash reporting in production builds. When the App crashes or hits an uncaught error, a crash report containing the JavaScript or native stack trace, the iOS version, the App version, and a session identifier is sent to Sentry. Personally identifiable information is stripped — we explicitly disable Sentry's "default PII" capture in <code>sentryClient.ts</code>, which means request URLs, IP addresses, and user identifiers are NOT attached to crash events. Crash reports help us fix bugs that affect real users. Sentry no-ops in development builds.</p>
+
+<h3>Analytics (V2.4 Status: Inactive)</h3>
+<p>The App includes first-party analytics infrastructure that can record anonymized screen views and feature usage. <strong>In V2.4, this infrastructure is inactive: events are queued locally on your device and are not transmitted to any server.</strong> A future build will add an opt-in toggle in Settings before any analytics events are sent. The App contains no third-party analytics SDKs (Google Analytics, Firebase, Facebook, etc.) and no tracking identifiers are collected.</p>
 
 <h2>3. Information the App Does Not Collect</h2>
 
@@ -129,7 +131,7 @@
 
 <h2>5. Photo Uploads and EXIF Stripping</h2>
 
-<p>When you upload a photo (catch photo, gear photo, or scouting photo), the App removes EXIF metadata — including GPS coordinates, camera serial numbers, and timestamps — before the photo is transmitted. This prevents inadvertent disclosure of your exact location or device.</p>
+<p>When you upload a photo (catch photo, gear photo, scouting photo, or camp photo), the App removes JPEG metadata segments — including EXIF GPS coordinates, camera serial numbers, capture timestamps, IPTC tags, and embedded thumbnails — before the photo is transmitted. The strip happens on your device in <code>exifStripper.ts</code>; the bytes that reach our backend are the original pixel data with the metadata segments dropped. This prevents inadvertent disclosure of your exact location or device when you share a campsite or harvest photo with others.</p>
 
 <h2>6. Children's Privacy</h2>
 
@@ -140,15 +142,15 @@
 <p>You can:</p>
 <ul>
   <li>Use the App without any account</li>
-  <li>Deny location permission at any time via iOS Settings</li>
-  <li>Disable or never enable analytics</li>
+  <li>Deny location permission at any time via iOS Settings &rarr; MDHuntFishOutdoors</li>
+  <li>Opt out of crash reporting by disabling Sentry in iOS Settings &rarr; Privacy &amp; Security &rarr; Analytics &amp; Improvements (this controls system-level telemetry; the App will respect that setting)</li>
   <li>Delete your account and all associated data — contact us at the email below; requests are processed within 30 days</li>
   <li>Request a copy of data we hold about you</li>
 </ul>
 
 <h2>8. Data Retention</h2>
 
-<p>Account data is retained while your account is active. Deleted accounts and their content are permanently removed from production databases within 30 days. Analytics events, if you opted in, are retained for 90 days then aggregated and deleted.</p>
+<p>Account data is retained while your account is active. Deleted accounts and their content are permanently removed from production databases within 30 days. Sentry crash reports are retained for 30 days then deleted. Analytics events, when the analytics infrastructure is activated in a future build, will be retained for 90 days then aggregated and deleted; in V2.4 no events are transmitted.</p>
 
 <h2>9. Security</h2>
 
@@ -162,7 +164,7 @@
 
 <div class="contact">
   <p>Questions about this policy, data requests, or account deletion:</p>
-  <p><strong>Email:</strong> dstonko1@gmail.com</p>
+  <p><strong>Email:</strong> feedback.mdhuntfishoutdoors@gmail.com</p>
   <p><strong>Developer:</strong> David Stonko</p>
   <p><strong>App Store:</strong> MDHuntFishOutdoors (Apple ID 6761347484)</p>
 </div>

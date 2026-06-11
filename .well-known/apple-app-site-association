@@ -3,13 +3,25 @@
     "apps": [],
     "details": [
       {
-        "appID": "BAFL96ZCUU.com.davidstonko.huntmaryland",
-        "paths": [
-          "/join",
-          "/join?*",
-          "/join/*"
+        "appIDs": ["BAFL96ZCUU.com.davidstonko.huntmaryland"],
+        "components": [
+          {
+            "/": "/huntmaryland-site/join/*",
+            "comment": "Deer Camp + Honey Hole invite Universal Links — opens HuntTabs > DeerCampTab with the inviteCode."
+          },
+          {
+            "/": "/huntmaryland-site/trip/*",
+            "comment": "Camp Trip invite Universal Links (V2.4) — opens CampTabs > CampTripPlannerTab with the inviteCode."
+          },
+          {
+            "/": "/join/*",
+            "comment": "Short-form invite Universal Links (future-compat for shorter shareable URLs)."
+          }
         ]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": ["BAFL96ZCUU.com.davidstonko.huntmaryland"]
   }
 }

@@ -10,58 +10,51 @@ REPOSITORY LAYOUT
 ================================================================================
 
   index.html                               Landing page (MDHuntFishOutdoors, 4 modes)
-  privacy.html                             Privacy policy (V2.2.0-accurate)
+  privacy.html                             Privacy policy (V2.4.0-accurate, effective 2026-06-10)
+  404.html                                 Invite-link fallback for /join/CODE + /trip/CODE
+                                           (also doubles as the site 404 page)
   .well-known/apple-app-site-association   Universal Links AASA — REPO ROOT (required)
-  docs/join/index.html                     Deer Camp invite landing page
+  docs/join/index.html                     Legacy ?code= invite landing page
   README_DEPLOY.txt                        This file
 
 GitHub Pages must be configured to serve from the REPO ROOT (main branch, /).
 Do NOT change it to /docs — that would break the AASA path Apple expects.
 
 ================================================================================
-V2.2.0 DEPLOY — WHAT'S NEW (2026-04-18)
+V2.4.0 DEPLOY — WHAT'S NEW (2026-06-10)
 ================================================================================
 
-  1. Landing page rewritten for 4-mode MDHuntFishOutdoors branding
-  2. Privacy policy rewritten to match V2.2.0 reality:
-     - Declares the Render backend, opt-in analytics, username accounts
-     - Lists Mapbox, Anthropic (AI), NOAA, Maryland DNR data flows
-     - EXIF stripping, 30-day account deletion, 90-day analytics retention
-  3. AASA moved from /docs/.well-known/ to /.well-known/ (site root)
-  4. App Store link now points to real Apple ID 6761347484
+  1. AASA replaced with the canonical V2.4 version from
+     huntmaryland-build/website/.well-known/ — modern appIDs+components
+     format, team BAFL96ZCUU, paths:
+       /huntmaryland-site/join/*   (Deer Camp / Honey Hole / Group Camp invites)
+       /huntmaryland-site/trip/*   (Camp Trip invites)
+       /join/*                     (short-form future-compat)
+     The previously deployed AASA used the legacy "paths" format with
+     /join* ONLY — it did NOT match the /huntmaryland-site/join/CODE
+     URLs the app actually generates, so Universal Links were broken
+     in production until this deploy.
+  2. privacy.html updated to V2.4.0 (Sentry active w/ PII off,
+     analytics inactive, EXIF stripping) — contact email switched to
+     feedback.mdhuntfishoutdoors@gmail.com.
+  3. NEW 404.html — when an invite recipient WITHOUT the app taps a
+     path-style invite link, GitHub Pages serves 404.html; it parses
+     the code from the path and renders the invite card + App Store
+     button. With the app installed, iOS opens the app directly and
+     this page is never seen.
 
-================================================================================
-TEAM ID — FILLED IN 2026-04-18 (BAFL96ZCUU)
-================================================================================
-
-.well-known/apple-app-site-association still has the placeholder BAFL96ZCUU.
-You MUST replace it with your Apple Developer Team ID before Universal Links
-will work.
-
-  1. Find your Team ID:
-     https://developer.apple.com/account -> Membership details -> Team ID
-     (10-character alphanumeric, e.g., A1B2C3D4E5)
-
-  2. Edit .well-known/apple-app-site-association and replace:
-        "appID": "BAFL96ZCUU.com.davidstonko.huntmaryland"
-     with:
-        "appID": "YOURTEAMID.com.davidstonko.huntmaryland"
-
-  3. Commit and push. Apple will pick up the change within an hour.
-
-  4. Verify the file serves correctly (no redirect, correct MIME type):
-        curl -I https://davidstonko.github.io/huntmaryland-site/.well-known/apple-app-site-association
-
-     Expected: HTTP 200, Content-Type should be application/json or text/plain.
+CANONICAL SOURCE: the AASA file's source of truth is
+huntmaryland-build/website/.well-known/apple-app-site-association.
+Never hand-edit the copy here — re-copy from the canonical repo.
 
 ================================================================================
 DEPLOY FLOW
 ================================================================================
 
-From your Mac, in this folder:
+From your Mac, in this folder (~/Code/huntmaryland-site):
 
   git add .
-  git commit -m "V2.2.0 site update"
+  git commit -m "V2.4.0 site update"
   git push
 
 GitHub Pages rebuilds automatically in ~1 minute.
@@ -70,17 +63,24 @@ GitHub Pages rebuilds automatically in ~1 minute.
 VERIFICATION CHECKLIST (POST-DEPLOY)
 ================================================================================
 
-  [ ] Open https://davidstonko.github.io/huntmaryland-site/
-      -> Shows MDHuntFishOutdoors branding, 4 mode cards, real stats
+  [ ] https://davidstonko.github.io/huntmaryland-site/
+      -> MDHuntFishOutdoors branding, 4 mode cards
 
-  [ ] Open https://davidstonko.github.io/huntmaryland-site/privacy.html
-      -> Matches what you declared in App Store Connect privacy questionnaire
+  [ ] https://davidstonko.github.io/huntmaryland-site/privacy.html
+      -> Effective Date June 10, 2026, V2.4.0, feedback email
 
   [ ] curl https://davidstonko.github.io/huntmaryland-site/.well-known/apple-app-site-association
-      -> Returns JSON with your real Team ID (not BAFL96ZCUU)
+      -> appIDs+components format, includes /huntmaryland-site/trip/*
 
-  [ ] Open https://davidstonko.github.io/huntmaryland-site/docs/join/?code=TESTCODE on iPhone
-      -> Shows invite card with "TESTCODE" and working App Store button
+  [ ] https://davidstonko.github.io/huntmaryland-site/join/TESTCODE
+      -> Invite card showing TESTCODE + App Store button (served via 404.html)
+
+  [ ] https://davidstonko.github.io/huntmaryland-site/trip/TESTCODE
+      -> Camp Trip invite card showing TESTCODE
+
+  NOTE: Apple's CDN caches AASA files for up to ~24h (mode=developer
+  on-device testing bypasses the cache). Don't panic if Universal
+  Links take a few hours to pick up the new file.
 
 ================================================================================
 FUTURE: CUSTOM DOMAIN (optional)
@@ -91,5 +91,5 @@ If you buy mdhuntfishoutdoors.com or similar:
   2. Add CNAME DNS record pointing to davidstonko.github.io
   3. GitHub handles HTTPS automatically
   4. Update all privacy.html and AASA URLs to the new domain
-
+     (and the AASA path components, which embed /huntmaryland-site/)
 ================================================================================

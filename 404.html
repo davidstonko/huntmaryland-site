@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6761347484">
+
+  <!-- Open Graph / iMessage Preview -->
+  <meta property="og:title" content="Join me on MDHuntFishOutdoors">
+  <meta property="og:description" content="Collaborative hunting, fishing, camping, and hiking maps for Maryland.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davidstonko.github.io/huntmaryland-site/">
+
+  <title>Invite — MDHuntFishOutdoors</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0D1A0D;
+      color: #e8e4d8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container { max-width: 500px; width: 100%; text-align: center; animation: fadeIn 0.6s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .icon-large { font-size: 80px; margin-bottom: 24px; display: block; }
+    h1 { font-size: 32px; font-weight: 700; color: #F0C040; margin-bottom: 12px; font-family: Georgia, serif; }
+    .subtitle { font-size: 18px; color: #a0a090; margin-bottom: 32px; line-height: 1.5; }
+    .invite-code {
+      background: rgba(26, 46, 26, 0.6);
+      border: 2px solid #D4A840;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 32px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      color: #F0C040;
+      word-break: break-all;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .code-label { font-size: 12px; color: #6B8E60; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .cta-button {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(180deg, #D4A840 0%, #C4952A 100%);
+      color: #0D1A0D;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(212, 168, 64, 0.25);
+      margin-bottom: 16px;
+      width: 100%;
+    }
+    .cta-button:hover { background: linear-gradient(180deg, #F0C040 0%, #D4A840 100%); }
+    .secondary-link { display: block; color: #8B7355; text-decoration: none; font-size: 14px; margin-top: 16px; }
+    .secondary-link:hover { color: #D4A840; }
+    .md-accent {
+      width: 100%; height: 3px; margin: 24px auto; border-radius: 2px;
+      background: linear-gradient(90deg, #C41E3A 0%, #C41E3A 33%, #F0C040 33%, #F0C040 66%, #000 66%, #000 100%);
+    }
+    .features-text { font-size: 13px; color: #6B8E60; margin-top: 24px; line-height: 1.6; }
+    .features-text strong { color: #D4A840; }
+    .hint { font-size: 13px; color: #6B8E60; margin-top: 8px; line-height: 1.5; }
+    @media (max-width: 480px) {
+      h1 { font-size: 28px; }
+      .icon-large { font-size: 64px; }
+      .subtitle { font-size: 16px; }
+      .cta-button { font-size: 15px; padding: 14px 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="icon-large" id="heroIcon">&#x26FA;&#x1F98C;</span>
+
+    <h1 id="title">You're Invited</h1>
+
+    <div class="md-accent"></div>
+
+    <p class="subtitle" id="subtitle">
+      You've been invited to a shared camp on <strong>MDHuntFishOutdoors</strong>!
+    </p>
+
+    <div id="codeBlock" style="display:none;">
+      <div class="code-label">Invite Code</div>
+      <div class="invite-code" id="inviteCode"></div>
+      <p class="hint">Already have the app? Just open this link again after installing &mdash; it opens straight into the app. Or enter the code above under Join Camp.</p>
+    </div>
+
+    <a class="cta-button" href="https://apps.apple.com/app/id6761347484" id="downloadButton">
+      Get MDHuntFishOutdoors
+    </a>
+
+    <a class="secondary-link" href="https://davidstonko.github.io/huntmaryland-site/">
+      &larr; Back to MDHuntFishOutdoors
+    </a>
+
+    <div class="features-text">
+      <p>
+        <strong>Maryland's outdoors, one app.</strong> Hunt, fish, camp, and hike with
+        collaborative maps, waypoints, and trip plans &mdash; all offline.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Universal Links open the app directly when installed; this page is the
+    // fallback for recipients WITHOUT the app. The app generates links like:
+    //   /huntmaryland-site/join/CODE   (Deer Camp / Honey Hole / Group Camp invites)
+    //   /huntmaryland-site/trip/CODE   (Camp Trip invites)
+    // GitHub Pages serves this 404.html for those paths; parse the code from it.
+    (function () {
+      var path = window.location.pathname || '';
+      var m = path.match(/\/(join|trip)\/([^\/?#]+)/);
+      var search = new URLSearchParams(window.location.search);
+      var kind = m ? m[1] : (path.indexOf('/join') !== -1 ? 'join' : null);
+      var code = m ? decodeURIComponent(m[2]) : (search.get('code') || '');
+
+      if (kind === 'trip') {
+        document.getElementById('heroIcon').innerHTML = '&#x1F3D5;&#xFE0F;';
+        document.getElementById('title').textContent = 'Camp Trip Invite';
+        document.getElementById('subtitle').innerHTML =
+          "You've been invited to a camp trip on <strong>MDHuntFishOutdoors</strong>!";
+      } else if (kind === 'join') {
+        document.getElementById('title').textContent = 'Camp Invite';
+      } else {
+        // True 404 (not an invite path)
+        document.getElementById('heroIcon').innerHTML = '&#x1F9ED;';
+        document.getElementById('title').textContent = 'Page Not Found';
+        document.getElementById('subtitle').innerHTML =
+          "That trail doesn't exist &mdash; but <strong>MDHuntFishOutdoors</strong> does.";
+      }
+
+      if (code) {
+        document.getElementById('codeBlock').style.display = 'block';
+        document.getElementById('inviteCode').textContent = code;
+        var banner = document.querySelector('meta[name="apple-itunes-app"]');
+        if (banner) {
+          banner.setAttribute('content',
+            'app-id=6761347484, app-argument=' +
+            'https://davidstonko.github.io/huntmaryland-site/' + (kind || 'join') + '/' +
+            encodeURIComponent(code));
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
